@@ -15,6 +15,7 @@
  */
 package com.example.android.sunshine.app;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
     private static final String DETAILFRAGMENT_TAG = "DFTAG";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
+    public static final String ACCOUNT = "default_account";
 
     private boolean mTwoPane;
     private String mLocation;
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements ForecastFragment.
             forecastFragment.setInitialSelectedDate(
                     WeatherContract.WeatherEntry.getDateFromUri(contentUri));
         }
+
 
         SunshineSyncAdapter.initializeSyncAdapter(this);
 
